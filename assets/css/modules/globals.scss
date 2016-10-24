@@ -5,7 +5,7 @@
 
 /* FONT VARIABLES */
 
-$mainFontStyle: 'Roboto', sans-serif;
+$mainFontStyle: 'Josefin Sans', sans-serif;
 $mainFontSize: 20px;
 
 /******************/
@@ -21,16 +21,20 @@ body{
 	font-family: $mainFontStyle;
 	font-size: $mainFontSize;
 	background-color: #f9f9f9;
-    color: #333;
+    color: #989797;
+    margin-top: 30px;
+}
+
+hr{
+    margin: 8px auto 0 auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(left, #f0f0f0, #989797, #f0f0f0);
 }
 
 h1{
     margin: 0;
     padding: 0;
-}
-
-h2,h3{
-    letter-spacing: 0.5px;
 }
 
 a{
@@ -43,7 +47,20 @@ a{
     }
 }
 
+h1{
+    letter-spacing: 0.5px;
+}
 p{
+    //letter-spacing: 0.5px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li{
     letter-spacing: 0.5px;
 }
 
@@ -61,13 +78,24 @@ button{
     }
 }
 
-.row{
+/* MAX WIDTH OF SITE */
+.site-width{
 	max-width: 1140px;
 }
+/**************************/
 
 /* CLEAR FLOATS CLASS */
 .clear-float{
+    content: "";
     clear: both;
 }
+/**************************/
 
+/* STYLING FOR MAIN PAGE CONTAINER */
+#page-container{
+    border: 1px solid black;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+}
 /**************************/

@@ -32,7 +32,7 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{base}}/assets/css/main.css">
         <!-- Online Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,600" rel="stylesheet">
 
         <!-- JSON-LD -START- -->
         <script type="application/ld+json"></script>
@@ -44,9 +44,9 @@
     </head>
     <body>
 
-        <div id="page-container">
+        <div id="page-container" class="site-width">
 
-            {% include header.html %}
+            {% include navigation.html %}
 
             {{ content }}
 
@@ -54,5 +54,7 @@
 
         </div>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="{{base}}/assets/scripts/navigation.js"></script>
     </body>
 </html>

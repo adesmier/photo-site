@@ -1,5 +1,7 @@
 @import "vendor/_normalize";
-@import "vendor/_grid";
 @import "vendor/_font-awesome";
 @import "modules/globals";
-@import "modules/index";
+@import "modules/navigation";
+@import "modules/home/home-body";
+
+@import "modules/media-queries";
