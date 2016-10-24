@@ -35,12 +35,13 @@ gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
         server: {
             baseDir: '_site'
         },
-        notify: false
+        notify: false,
+        open: false
     });
 });
 
 /**
- * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
+ * Compile files from assets/css/main.scss into both _site/css (for live injecting) and site (for future jekyll builds)
  */
 gulp.task('sass', function () {
     return gulp.src('assets/css/main.scss')
@@ -48,12 +49,12 @@ gulp.task('sass', function () {
             //includePaths: ['scss'],
             //onError: browserSync.notify
         }))
-        .pipe(cleanCss({compatibility: 'ie8'}))
+        .pipe(cleanCss({compatibility: 'ie8'})) //minify main.css
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
         .pipe(gulp.dest('_site/assets/css'))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('assets/css'));
-        
+
 });
 
 /**
@@ -70,9 +71,14 @@ gulp.task('watch', function () {
  * compile the jekyll site, launch BrowserSync & watch files.
  */
 gulp.task('default', ['browser-sync', 'watch']);
-
+/**
+ * task to run when building on Netlify (runs all tasks
+ * appart from browser-sync)
+ */
 gulp.task('netlify-deploy', ['sass', 'jekyll-build']);
-
+/**
+ * delete the _site folder
+ */
 gulp.task('clean-site', function() {
   return del.sync('_site');
 });

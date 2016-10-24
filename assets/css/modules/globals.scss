@@ -1,0 +1,73 @@
+/* COLOUR VARIABLES */
+
+
+/********************/
+
+/* FONT VARIABLES */
+
+$mainFontStyle: 'Roboto', sans-serif;
+$mainFontSize: 20px;
+
+/******************/
+
+
+/* FULL ELEMENT SELECTORS */
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+	font-family: $mainFontStyle;
+	font-size: $mainFontSize;
+	background-color: #f9f9f9;
+    color: #333;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+h2,h3{
+    letter-spacing: 0.5px;
+}
+
+a{
+	text-decoration: none;
+    &:link{
+        color: currentColor;
+    }
+    &:visited{
+        color: currentColor;
+    }
+}
+
+p{
+    letter-spacing: 0.5px;
+}
+
+article,
+figure{
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    &:focus{
+        outline: 0;
+    }
+}
+
+.row{
+	max-width: 1140px;
+}
+
+/* CLEAR FLOATS CLASS */
+.clear-float{
+    clear: both;
+}
+
+/**************************/

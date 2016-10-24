@@ -1,4 +1,10 @@
-name: Your New Jekyll Site
+name: Project Name
+description: Description of Project
+author: Author Name
+author_email: author@email.com
+url: https://example.com
+# baseurl
+
 exclude:
   - node_modules
   - gulpfile.js
@@ -6,3 +12,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - assets/css/modules
+  - assets/css/main.scss

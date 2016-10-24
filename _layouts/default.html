@@ -1,3 +1,5 @@
+{% include base-path.html %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +9,7 @@
 
         <title>{{ page.title }}</title>
 
-        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="shortcut icon" href="{{base}}/assets/image/favicon.ico">
         <meta property="og:title" content="{{ page.title }}">
         <meta name="twitter:title" content="{{ page.title }}">
         <meta name="twitter:card" content="summary">
@@ -22,15 +24,15 @@
         <meta property="og:url" content="{{ site.myurl }}{{ page.url | replace:'index.html',''}}">
         <meta name="twitter:url" content="{{ site.myurl }}{{ page.url | replace:'index.html',''}}">
         <meta property="og:site_name" content="{{ site.name }}">
-        
+
         <meta property="og:image" content="{{ site.myurl }}{{ page.image_social }}">
         <meta property="og:image:type" content="image/jpeg">
         <meta name="twitter:image" content="{{ site.myurl }}{{ page.image_social }}">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="{{base}}/assets/css/main.css">
         <!-- Online Fonts -->
-        <link href='https://fonts.googleapis.com/css?family={{ fonts }}' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
         <!-- JSON-LD -START- -->
         <script type="application/ld+json"></script>
@@ -42,7 +44,15 @@
     </head>
     <body>
 
-        {{ content }}
+        <div id="page-container">
+
+            {% include header.html %}
+
+            {{ content }}
+
+            {% include footer.html %}
+
+        </div>
 
     </body>
 </html>
