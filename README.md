@@ -1,1 +1,2 @@
-Photo website for Lara
+Starter Tempalte Project for Jekyll
+===================================
