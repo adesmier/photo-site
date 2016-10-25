@@ -1,6 +1,6 @@
 #menu-wrapper{
     border: 1px solid blue;
-    height: 400px;
+    height: 100vh;
     flex: 1;
 
     #site-title{
@@ -26,10 +26,17 @@
         }
     }
 
+    #projects-nav{
+        cursor: pointer;
+    }
+
     #projects-sub-nav{
         display: none;
         margin: 12px 0;
         font-size: 90%;
+        li{
+            cursor: pointer;
+        }
     }
 
 

@@ -1,0 +1,28 @@
+#main-content{
+    border: 1px solid green;
+    height: 100vh;
+    flex: 3;
+}
+
+#image-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#large-image{
+    img{
+        display: block;
+        width: 470px;
+    }
+}
+
+#small-image{
+    img{
+        display: block;
+        padding-left: 10px;
+        &:not(:last-of-type){
+            padding-bottom: 10px;
+        }
+    }
+}
