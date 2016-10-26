@@ -14,3 +14,7 @@ exclude:
   - README.md
   - assets/css/modules
   - assets/css/main.scss
+
+collections:
+    projects:
+        output: true

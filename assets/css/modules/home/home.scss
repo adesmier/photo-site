@@ -5,24 +5,49 @@
 }
 
 #image-wrapper{
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+    position: relative;
+    border: 1px solid red;
+    width: 630px;
+    margin: 100px auto 0 auto;
 }
 
 #large-image{
+    position: absolute;
     img{
         display: block;
+        position: absolute;
         width: 470px;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .active-image{
+        opacity: 1;
     }
 }
 
 #small-image{
-    img{
-        display: block;
-        padding-left: 10px;
+    position: absolute;
+    right: 0;
+
+    .image-overlay{
+        position: relative;
+        max-height: 150px;
         &:not(:last-of-type){
-            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
+        &:hover > .inner-gradient{
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+    }
+    .inner-gradient{
+        position: absolute;
+        z-index: 1;
+        opacity: 1;
+        transition: opacity 0.5s;
+        min-height: 150px;
+        min-width: 150px;
+        background: linear-gradient(rgba(34, 198, 124, 0.3), rgba(34, 198, 124, 0.3));
     }
 }

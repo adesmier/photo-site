@@ -1,17 +1,27 @@
 $(function () {
 
-    var $largeImage = $('#large-image img');
+    $('#small-image .inner-gradient').bind('click', function(){
 
-    $('#small-image img').bind('click', function(event){
+        var clickedSrc = $(this).attr('data-imgsrc');
+        var finalSrc;
 
-        var largeImgSrc = $largeImage.attr('src');
-        var largeImgAltSrc = $largeImage.attr('data-altsrc');
+        $('#large-image img').each(function(){
 
-        $largeImage.attr('src', $(this).attr('data-altsrc'));
-        $largeImage.attr('data-altsrc', $(this).attr('src'));
+            var replacementSrc = $(this).attr('data-altsrc');
 
-        $(this).attr('src', largeImgAltSrc);
-        $(this).attr('data-altsrc', largeImgSrc);
+            if($(this).hasClass('active-image')){
+                $(this).removeClass('active-image');
+                finalSrc = replacementSrc;
+            }
+
+            if(replacementSrc === clickedSrc){
+                $(this).addClass('active-image');
+            }
+
+        });
+
+        $(this).attr('data-imgsrc', finalSrc)
+        $(this).next().attr('src', finalSrc);
 
     });
 

@@ -9,8 +9,11 @@
         <li><a href="#">Home</a></li>
         <li id="projects-nav">Projects
             <ul id="projects-sub-nav">
-                <li><a href="#shad">Shadows</a></li>
-                <li><a href="#wild">Wild West</a></li>
+
+                {% for project in site.projects %}
+                    <li><a href="{{ project.url }}">{{ project.title }}</a></li>
+                {% endfor %}
+
             </ul>
         </li>
         <li><a href="#">About</a></li>
