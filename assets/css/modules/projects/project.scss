@@ -1,0 +1,15 @@
+#project-wrapper{
+    position: relative;
+    border: 1px solid red;
+    width: 630px;
+    margin: 100px auto 0 auto;
+}
+
+#hero-image{
+    position: absolute;
+    img{
+        display: block;
+        position: absolute;
+        //width: 470px;
+    }
+}

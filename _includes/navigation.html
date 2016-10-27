@@ -1,22 +1,33 @@
-<nav id=menu-wrapper>
+<aside id=aside-wrapper>
     <div id="site-title">
         <h1>Some Person</h1>
         <hr />
         <h2>Photography</h2>
     </div>
 
-    <ul id="main-nav">
-        <li><a href="#">Home</a></li>
-        <li id="projects-nav">Projects
-            <ul id="projects-sub-nav">
+    <nav id="main-nav">
+        <ul id="nav-list">
+            <li><a href="#">Home</a></li>
+            <li id="projects-nav">Projects
+                <ul id="projects-sub-nav">
 
-                {% for project in site.projects %}
-                    <li><a href="{{ project.url }}">{{ project.title }}</a></li>
-                {% endfor %}
+                    {% for project in site.projects %}
+                        <li><a href="{{ project.url }}">{{ project.title }}</a></li>
+                    {% endfor %}
 
-            </ul>
-        </li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    {% if page.url contains 'projects' %}
+
+        <div id="project-thumbnails">
+
+        </div>
+
+    {% endif %}
+
+</aside>
