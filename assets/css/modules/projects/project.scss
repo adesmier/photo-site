@@ -1,15 +1,21 @@
 #project-wrapper{
     position: relative;
-    border: 1px solid red;
-    width: 630px;
+    width: 640px;
+    height: 640px;
     margin: 100px auto 0 auto;
+    overflow: hidden;
+    &:hover > .hero-image-caption{
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
 }
 
-#hero-image{
+.hero-image-caption{
     position: absolute;
-    img{
-        display: block;
-        position: absolute;
-        //width: 470px;
-    }
+    bottom: 0;
+    background: linear-gradient(rgba(34, 198, 124, 0.3), rgba(34, 198, 124, 0.3));
+    width: 100%;
+    height: 80px;
+    opacity: 0;
+    transition: opacity 0.3s;
 }

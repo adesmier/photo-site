@@ -25,4 +25,13 @@ $(function () {
 
     });
 
+
+    $('#thumbnail-wrapper img').bind('click', function(){
+
+        var newHeroSrc = $(this).attr('data-altsrc');
+
+        $('#project-wrapper img').attr('src', newHeroSrc)
+
+    });
+
 })

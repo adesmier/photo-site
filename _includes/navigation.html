@@ -25,9 +25,32 @@
     {% if page.url contains 'projects' %}
 
         <div id="project-thumbnails">
+            <div id="thumbnail-wrapper">
+                <h3>{{ page.title }}</h3>
+                <p>
+                    {% if page.description %}
+                        {{ page.description }}
+                    {% endif %}
+                </p>
 
+            {% for thumbnail in page.images %}
+
+                <img src="{{base}}{{ thumbnail[1].size_small }}" data-altsrc="{{base}}{{ thumbnail[1].size_large }}" alt="test image" />
+
+            {% endfor %}
+
+            </div>
         </div>
 
     {% endif %}
+
+    <div id="aside-contact-info">
+        <h4>@some_person</h4>
+        <ul id="social-icons">
+            <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+            <li><i class="fa fa-flickr" aria-hidden="true"></i></li>
+            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+        </ul>
+    </div>
 
 </aside>

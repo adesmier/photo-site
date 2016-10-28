@@ -5,9 +5,10 @@ layout: default
 <div id="main-content">
 
     <div id="project-wrapper">
-        <div id="hero-image">
-            <img src="{{ page.image_1.size_large }}" alt="hero image" />
-        </div>
+        <img src="{{ page.images.image_1.size_large }}" alt="hero image" />
+        <figcaption class="hero-image-caption">
+            {{ page.images.image_1.comment }}
+        </figcaption>
     </div>
 
 
