@@ -18,3 +18,9 @@ exclude:
 collections:
     projects:
         output: true
+
+contentful:
+  spaces:
+    - posts:
+        space: 4ett0pcl5c14
+        access_token: 9c8d0bf69fa1e99c83e68d299437a365b8e8d34d46c41ac7c2c0a5aefb358e18
