@@ -1,5 +1,8 @@
 $(function () {
 
+    //jQuery variables
+    var $projectWrapper = $('#project-wrapper')
+
     $('#small-image .inner-gradient').bind('click', function(){
 
         var clickedSrc = $(this).attr('data-imgsrc');
@@ -29,8 +32,10 @@ $(function () {
     $('#thumbnail-wrapper img').bind('click', function(){
 
         var newHeroSrc = $(this).attr('data-altsrc');
+        var newHeroCap = $(this).attr('data-caption');
 
-        $('#project-wrapper img').attr('src', newHeroSrc)
+        $projectWrapper.children('img').attr('src', newHeroSrc);
+        $projectWrapper.children('figcaption').html(newHeroCap);
 
     });
 

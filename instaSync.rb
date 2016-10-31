@@ -41,8 +41,8 @@ begin
                     f.puts "    image_#{data_counter}:"
                     f.puts "        size_large: " + instaResponse['data'][data_counter]['images']['standard_resolution']['url']
                     f.puts "        size_small: " + instaResponse['data'][data_counter]['images']['thumbnail']['url']
-                    f.print "        hashtags: " + "#{instaResponse['data'][0]['tags']}\n".tr('"', '')
-                    f.puts "        caption: " + instaResponse['data'][data_counter]['caption']['text'].tr('#', '')
+                    f.puts "        link: " + "\"" + instaResponse['data'][data_counter]['link'].tr('\\', '') + "\""
+                    f.puts "        caption: " + "\"" + instaResponse['data'][data_counter]['caption']['text'] + "\""
                 end
                 tag_counter+=1
             end while tag_counter < instaResponse['data'][data_counter]['tags'].length
@@ -56,9 +56,3 @@ begin
 
     projects_counter+=1
 end while projects_counter < num_of_projects
-
-
-
-
-
-
