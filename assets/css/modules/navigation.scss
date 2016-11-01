@@ -1,7 +1,9 @@
 #aside-wrapper{
     display: flex;
     flex-direction: column;
-    height: 1000px;
+    //height: 1000px;
+    border: 1px solid green;
+    //padding: 0 5px;
     flex: 1;
 
     #site-title{
@@ -73,25 +75,25 @@
         }
     }
 
-    #aside-contact-info{
-        flex: 30;
-        text-align: center;
-
-        h4{
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-
-        #social-icons{
-            li{
-                display: inline;
-                font-size: 110%;
-                &:not(:last-of-type){
-                    margin-right: 10px;
-                }
-            }
-        }
-    }
+    // #aside-contact-info{
+    //     flex: 30;
+    //     text-align: center;
+    //
+    //     h4{
+    //         font-weight: 300;
+    //         margin-bottom: 10px;
+    //     }
+    //
+    //     #social-icons{
+    //         li{
+    //             display: inline;
+    //             font-size: 110%;
+    //             &:not(:last-of-type){
+    //                 margin-right: 10px;
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 #menu-icon{

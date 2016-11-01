@@ -93,14 +93,18 @@ button{
 
 /* STYLING FOR MAIN PAGE CONTAINER */
 #page-container{
+    border: 1px solid red;
     margin: 0 auto;
+    padding: 0 10px;
     display: flex;
 }
 /**************************/
 
 /* MAIN CONTENT SECTION STYLING */
 #main-content{
-    height: 1000px;
+    border: 1px solid blue;
+    //padding: 0 20px;
+    height: 700px;
     flex: 3;
 }
 /**************************/

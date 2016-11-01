@@ -1,4 +1,41 @@
-@media only screen and (max-width: 640px){
+@media only screen and (max-width: 900px){
+    #image-wrapper{
+        position: relative;
+        width: 630px;
+        margin: 50px auto 0 auto;
+    }
+
+    #large-image{
+        position: absolute;
+        margin-left: 60px;
+        img{
+            display: block;
+            position: absolute;
+            width: 380px;
+        }
+    }
+
+    #small-image{
+        position: absolute;
+        right: 60px;
+
+        .image-overlay{
+            position: relative;
+            max-height: 120px;
+            img{
+                width: 120px;
+            }
+        }
+        .inner-gradient{
+            position: absolute;
+            z-index: 1;
+            min-height: 120px;
+            min-width: 120px;
+        }
+    }
+}
+
+@media only screen and (max-width: 764px){
     #page-container{
         display: block;
     }
@@ -12,10 +49,11 @@
         }
     }
 
-
     #menu-icon{
         display: table;
     }
 
 
 }
+
+
