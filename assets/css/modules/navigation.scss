@@ -24,6 +24,7 @@
     }
 
     #nav-list{
+        display: block;
         margin-top: 10px;
         text-align: center;
         li{
@@ -91,7 +92,28 @@
             }
         }
     }
+}
 
+#menu-icon{
+    display: none;
+    cursor: pointer;
+    margin: 0 auto;
 
+    div{
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        margin: 4px 0;
+        transition: all 0.3s;
+    }
+    #icon-bar1.change{
+        transform: rotate(-45deg) translate(-3px, 5px);
+    }
+    #icon-bar2.change{
+        opacity: 0;
+    }
+    #icon-bar3.change{
+        transform: rotate(45deg) translate(-3px, -5px) ;
+    }
 
 }

@@ -93,8 +93,14 @@ button{
 
 /* STYLING FOR MAIN PAGE CONTAINER */
 #page-container{
-    //height: 11vh;
     margin: 0 auto;
     display: flex;
+}
+/**************************/
+
+/* MAIN CONTENT SECTION STYLING */
+#main-content{
+    height: 1000px;
+    flex: 3;
 }
 /**************************/

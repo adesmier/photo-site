@@ -2,7 +2,20 @@
     #page-container{
         display: block;
     }
-    #main-nav{
 
+    #aside-wrapper{
+        #nav-list{
+            display: none;
+        }
+        #main-nav{
+            flex: 2;
+        }
     }
+
+
+    #menu-icon{
+        display: table;
+    }
+
+
 }
