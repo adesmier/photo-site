@@ -38,12 +38,7 @@
                     {% endif %}
                 </p>
 
-            {% for thumbnail in page.images %}
-
-                <img src="{{ thumbnail[1].size_small }}" data-altsrc="{{ thumbnail[1].size_large }}"
-                data-caption="<a href='{{ thumbnail[1].link }}' target='_blank'>{{ thumbnail[1].caption }}</a>" alt="test image" />
-
-            {% endfor %}
+                <div id="thumbnails"></div>
 
             </div>
         </div>

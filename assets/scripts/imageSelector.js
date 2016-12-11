@@ -29,7 +29,7 @@ $(function () {
     });
 
 
-    $('#thumbnail-wrapper img').bind('click', function(){
+    $(document).on('click', '#thumbnails img', function(){
 
         var newHeroSrc = $(this).attr('data-altsrc');
         var newHeroCap = $(this).attr('data-caption');
