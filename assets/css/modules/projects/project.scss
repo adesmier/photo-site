@@ -1,7 +1,7 @@
 #project-wrapper{
     position: relative;
     width: 640px;
-    //height: 640px;
+    height: 640px;
     margin: 50px auto 0 auto;
     overflow: hidden;
     &:hover > .hero-image-caption{
@@ -10,9 +10,20 @@
     }
 }
 
+#loading-spinner{
+    display: none;
+    position: absolute;
+    border: 1px solid red;
+    width: 100%;
+    height: 640px;
+    background-image: url('../images/small-spinner.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 .hero-image-caption{
     position: absolute;
-    bottom: 5px;
+    bottom: 0;
     background: linear-gradient(rgba(91, 91, 91, 0.7), rgba(91, 91, 91, 0.7));
     width: 100%;
     height: 80px;

@@ -70,6 +70,10 @@
             top: 0;
             left: 0;
             width: 60px;
+            height: 60px;
+            background-image: url('../images/small-spinner.gif');
+            background-repeat: no-repeat;
+            background-position: center center;
             margin-right: 5px;
             transition: box-shadow 0.3s;
             &:hover{

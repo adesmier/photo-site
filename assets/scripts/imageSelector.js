@@ -1,12 +1,13 @@
+/*
+Home Page usage only - enables swapping of images between hero and thumbnail sizes
+*/
+
 $(function () {
 
-    //jQuery variables
-    var $projectWrapper = $('#project-wrapper')
-
-    $('#small-image .inner-gradient').bind('click', function(){
+    $('#small-image .inner-gradient').on('click', function(){
 
         var clickedSrc = $(this).attr('data-imgsrc');
-        var finalSrc;
+        var finalSrc = '';
 
         $('#large-image img').each(function(){
 
@@ -28,15 +29,5 @@ $(function () {
 
     });
 
-
-    $(document).on('click', '#thumbnails img', function(){
-
-        var newHeroSrc = $(this).attr('data-altsrc');
-        var newHeroCap = $(this).attr('data-caption');
-
-        $projectWrapper.children('img').attr('src', newHeroSrc);
-        $projectWrapper.children('figcaption').html(newHeroCap);
-
-    });
 
 })

@@ -3,7 +3,7 @@ description: Description of Project
 author: Author Name
 author_email: author@email.com
 url: https://example.com
-# baseurl
+baseurl: http://192.168.1.103:3000
 
 exclude:
   - node_modules
