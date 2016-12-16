@@ -24,10 +24,11 @@ $(function () {
                         src: data.images.thumbnail.url,
                         'data-altsrc': data.images.standard_resolution.url,
                         'data-height': data.images.standard_resolution.height,
+                        'data-loaded': 0,
                         'data-caption': "<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>'
                     }).appendTo($thumbnails);
                     if(!projImageSet){
-                        console.log('Here tagindex is ');
+
                         var $heroImage = $('<img>');
 
                         $spinner.show();
@@ -65,16 +66,16 @@ $(function () {
         var newHeight = $(this).attr('data-height');
         var $heroImage = $('<img>');
 
-        $spinner.fadeIn();
+        if($(this).attr('data-loaded') == 0){
+            $spinner.fadeIn();
+        }
 
         $heroImage.on('load', function(){
 
             $spinner.fadeOut();
             $projectWrapper.css({'height': newHeight});
 
-            //$projectImage.fadeOut('fast', function(){
-                $projectImage.attr('src', $heroImage.attr('src'));
-            //}).fadeIn('fast');
+            $projectImage.attr('src', $heroImage.attr('src'));
 
             $spinner.css({'height': newHeight});
             $projectCaption.html(newHeroCap);
@@ -82,6 +83,7 @@ $(function () {
         });
 
         $heroImage.attr('src', newHeroSrc);
+        $(this).attr('data-loaded', 1);
 
 
     });
