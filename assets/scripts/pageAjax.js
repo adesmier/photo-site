@@ -13,11 +13,12 @@ $(function () {
     var $thumbnailWrapper = $('#thumbnail-wrapper');
     var $thumbnails = $thumbnailWrapper.children('#thumbnails');
     var hashtag = $thumbnailWrapper.children('h3').text().toLowerCase();
+    var projImageSet = false;
 
     $.getJSON(instagramURL).done(function(json){
         console.log(json);
-        $.each(json.data, function(index, data){
-            $.each(data.tags, function(index, tag){
+        $.each(json.data, function(dataIndex, data){
+            $.each(data.tags, function(tagIndex, tag){
                 if(tag == hashtag){
                     $('<img>').attr({
                         src: data.images.thumbnail.url,
@@ -25,7 +26,8 @@ $(function () {
                         'data-height': data.images.standard_resolution.height,
                         'data-caption': "<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>'
                     }).appendTo($thumbnails);
-                    if(index == 0){
+                    if(!projImageSet){
+                        console.log('Here tagindex is ');
                         var $heroImage = $('<img>');
 
                         $spinner.show();
@@ -38,6 +40,8 @@ $(function () {
 
                         $heroImage.attr('src', data.images.standard_resolution.url);
                         $projectCaption.html("<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>');
+
+                        projImageSet = true;
                     }
                 }
             });
@@ -50,19 +54,35 @@ $(function () {
 
     $thumbnails.on('click', 'img', function(){
 
+        var curHeroSrc = $projectImage.attr('src');
         var newHeroSrc = $(this).attr('data-altsrc');
+
+        if(curHeroSrc == newHeroSrc){
+            return;
+        }
+
         var newHeroCap = $(this).attr('data-caption');
         var newHeight = $(this).attr('data-height');
+        var $heroImage = $('<img>');
 
-        //$spinner.show();
-        $projectWrapper.add($spinner).css({'height': newHeight});
-        $projectImage.attr('src', newHeroSrc);
+        $spinner.fadeIn();
 
-        $projectImage.one('load', function(){
-            //$spinner.hide();
+        $heroImage.on('load', function(){
+
+            $spinner.fadeOut();
+            $projectWrapper.css({'height': newHeight});
+
+            //$projectImage.fadeOut('fast', function(){
+                $projectImage.attr('src', $heroImage.attr('src'));
+            //}).fadeIn('fast');
+
+            $spinner.css({'height': newHeight});
+            $projectCaption.html(newHeroCap);
+
         });
 
-        $projectCaption.html(newHeroCap);
+        $heroImage.attr('src', newHeroSrc);
+
 
     });
 
