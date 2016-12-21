@@ -1,9 +1,6 @@
 #aside-wrapper{
     display: flex;
     flex-direction: column;
-    //height: 1000px;
-    border: 1px solid green;
-    //padding: 0 5px;
     flex: 1;
 
     #site-title{
@@ -49,9 +46,7 @@
 
     #project-thumbnails{
         flex: 30;
-
         #thumbnail-wrapper{
-            //width: 100%;
             margin: 0 auto;
             text-align: center;
             h3{
@@ -71,9 +66,9 @@
             left: 0;
             width: 60px;
             height: 60px;
-            background-image: url('../images/small-spinner.gif');
-            background-repeat: no-repeat;
-            background-position: center center;
+            background-color: rgba(152, 151, 151, 0.1);
+            animation: colorchange 5s infinite;
+            -webkit-animation: colorchange 5s infinite;
             margin-right: 5px;
             transition: box-shadow 0.3s;
             &:hover{
@@ -126,4 +121,22 @@
         transform: rotate(45deg) translate(-3px, -5px) ;
     }
 
+}
+
+@keyframes colorchange{
+  0%   {background-color: rgba(152, 151, 151, 0.1);}
+  20%  {background-color: rgba(152, 151, 151, 0.3);}
+  40%  {background-color: rgba(152, 151, 151, 0.6);}
+  60%  {background-color: rgba(152, 151, 151, 0.9);}
+  80%  {background-color: rgba(152, 151, 151, 0.6);}
+  100%  {background-color: rgba(152, 151, 151, 0.3);}
+}
+
+@-webkit-keyframes colorchange{
+  0%   {background-color: rgba(152, 151, 151, 0.1);}
+  20%  {background-color: rgba(152, 151, 151, 0.3);}
+  40%  {background-color: rgba(152, 151, 151, 0.6);}
+  60%  {background-color: rgba(152, 151, 151, 0.9);}
+  80%  {background-color: rgba(152, 151, 151, 0.6);}
+  100%  {background-color: rgba(152, 151, 151, 0.3);}
 }

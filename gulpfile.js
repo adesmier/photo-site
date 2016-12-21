@@ -8,7 +8,8 @@ var del         = require('del');
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
-    jekyllBuild: '<span style="color: grey">Running:</span> $ bundle exec jekyll build'
+    jekyllBuild: 'DEV MODE: Building Jekyll Site\n<span style="color: grey">Running:</span> $ bundle exec jekyll build',
+    jekyllLiveBuild: 'LIVE MODE: Building Jekyll Site\n<span style="color: grey">Running:</span> $ bundle exec jekyll build'
 };
 
 /**
@@ -17,6 +18,15 @@ var messages = {
 gulp.task('jekyll-build', function (done) {
     browserSync.notify(messages.jekyllBuild);
     return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
+        .on('close', done);
+});
+
+/**
+ * Build the Jekyll Site for production
+ */
+gulp.task('jekyll-live-build', function (done) {
+    browserSync.notify(messages.jekyllLiveBuild);
+    return cp.spawn( jekyll , ['build', '--config', '_liveConfig.yml'], {stdio: 'inherit'})
         .on('close', done);
 });
 
@@ -54,7 +64,6 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('_site/assets/css'))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('assets/css'));
-
 });
 
 /**
@@ -63,7 +72,7 @@ gulp.task('sass', function () {
  */
 gulp.task('watch', function () {
     gulp.watch('assets/css/**', ['sass']);
-    gulp.watch(['*.html', '_layouts/**', '_includes/**', '_posts/*'], ['jekyll-rebuild']);
+    gulp.watch(['*.html', '_layouts/**', '_includes/**', '_posts/*', 'assets/scripts/**'], ['jekyll-rebuild']);
 });
 
 /**
@@ -75,7 +84,7 @@ gulp.task('default', ['browser-sync', 'watch']);
  * task to run when building on Netlify (runs all tasks
  * appart from browser-sync)
  */
-gulp.task('netlify-deploy', ['sass', 'jekyll-build']);
+gulp.task('netlify-deploy', ['sass', 'jekyll-live-build']);
 /**
  * delete the _site folder
  */

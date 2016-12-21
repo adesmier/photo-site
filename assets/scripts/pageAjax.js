@@ -17,36 +17,40 @@ $(function () {
 
     $.getJSON(instagramURL).done(function(json){
         console.log(json);
-        $.each(json.data, function(dataIndex, data){
-            $.each(data.tags, function(tagIndex, tag){
-                if(tag == hashtag){
-                    $('<img>').attr({
-                        src: data.images.thumbnail.url,
-                        'data-altsrc': data.images.standard_resolution.url,
-                        'data-height': data.images.standard_resolution.height,
-                        'data-loaded': 0,
-                        'data-caption': "<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>'
-                    }).appendTo($thumbnails);
-                    if(!projImageSet){
 
-                        var $heroImage = $('<img>');
+        if(json.meta.code != 200 && json.meta.error_message){
+            console.log('There was an error in the Json ' + json.meta.error_message);
+        } else {
+            $.each(json.data, function(dataIndex, data){
+                $.each(data.tags, function(tagIndex, tag){
+                    if(tag == hashtag){
+                        $('<img>').attr({
+                            src: data.images.thumbnail.url,
+                            'data-altsrc': data.images.standard_resolution.url,
+                            'data-height': data.images.standard_resolution.height,
+                            'data-caption': "<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>'
+                        }).appendTo($thumbnails);
+                        if(!projImageSet){
 
-                        $spinner.show();
-                        $projectWrapper.css({'height': data.images.standard_resolution.height});
+                            var $heroImage = $('<img>');
 
-                        $heroImage.on('load', function(){
-                            $spinner.hide();
-                            $projectImage.attr('src', $heroImage.attr('src'));
-                        });
+                            $spinner.show();
+                            $projectWrapper.css({'height': data.images.standard_resolution.height});
 
-                        $heroImage.attr('src', data.images.standard_resolution.url);
-                        $projectCaption.html("<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>');
+                            $heroImage.on('load', function(){
+                                $spinner.hide();
+                                $projectImage.attr('src', $heroImage.attr('src'));
+                            });
 
-                        projImageSet = true;
+                            $heroImage.attr('src', data.images.standard_resolution.url);
+                            $projectCaption.html("<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>');
+
+                            projImageSet = true;
+                        }
                     }
-                }
+                });
             });
-        });
+        }
 
     }).fail(function(jqxhr, textStatus, error){
         var err = textStatus + ', ' + error;
@@ -66,25 +70,31 @@ $(function () {
         var newHeight = $(this).attr('data-height');
         var $heroImage = $('<img>');
 
-        if($(this).attr('data-loaded') == 0){
-            $spinner.fadeIn();
-        }
 
-        $heroImage.on('load', function(){
+        function setHeroImage(){
 
-            $spinner.fadeOut();
-            $projectWrapper.css({'height': newHeight});
+            var timer = setTimeout(function(){
+                $spinner.fadeIn();
+            }, 500);
 
-            $projectImage.attr('src', $heroImage.attr('src'));
+            $heroImage.on('load', function(){
 
-            $spinner.css({'height': newHeight});
-            $projectCaption.html(newHeroCap);
+                $projectWrapper.css({'height': newHeight});
+                $projectImage.attr('src', $heroImage.attr('src'));
 
-        });
+                $spinner.css({'height': newHeight});
+                $projectCaption.html(newHeroCap);
 
-        $heroImage.attr('src', newHeroSrc);
-        $(this).attr('data-loaded', 1);
+                clearTimeout(timer);
+                $spinner.fadeOut();
 
+            });
+
+            $heroImage.attr('src', newHeroSrc);
+
+        };
+
+        setHeroImage();
 
     });
 

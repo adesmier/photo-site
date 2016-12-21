@@ -2,7 +2,7 @@ title: Some Person - Photography
 description: Description of Project
 author: Author Name
 author_email: author@email.com
-url: http://192.168.1.133:3002
+url: https://photosite.netlify.com
 
 exclude:
   - node_modules
