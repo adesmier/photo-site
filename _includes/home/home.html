@@ -1,24 +1,25 @@
 <main id="main-content">
     <div id="image-wrapper">
         <div id="large-image">
-            <img src="{{base}}/assets/images/large/large640_1.jpg" data-altsrc="{{base}}/assets/images/small/small150_1.jpg" alt="main home image" class="active-image"/>
-            <img src="{{base}}/assets/images/large/large640_2.jpg" data-altsrc="{{base}}/assets/images/small/small150_2.jpg" alt="main home image" />
-            <img src="{{base}}/assets/images/large/large640_3.jpg" data-altsrc="{{base}}/assets/images/small/small150_3.jpg" alt="main home image" />
-            <img src="{{base}}/assets/images/large/large640_4.jpg" data-altsrc="{{base}}/assets/images/small/small150_4.jpg" alt="main home image" />
+
+            {% assign largeImage = site.data.contentful.spaces.posts.homePageImages[0].heroImage %}
+
+            <img src="assets/images/home/{{ largeImage.title }}.jpg" alt="{{ largeImage.description }}" class="active-image"/>
+
+            {% for thumbs in site.data.contentful.spaces.posts.homePageImages[0].thumbnailImages %}
+                <img src="assets/images/home/{{ thumbs.title }}.jpg" alt="{{ thumbs.description }}" />
+            {% endfor %}
+
         </div>
         <div id="small-image">
-            <div class="image-overlay">
-                <div class="inner-gradient" data-imgsrc="{{base}}/assets/images/small/small150_2.jpg"></div>
-                <img src="{{base}}/assets/images/small/small150_2.jpg" alt="small image" />
-            </div>
-            <div class="image-overlay">
-                <div class="inner-gradient" data-imgsrc="{{base}}/assets/images/small/small150_3.jpg"></div>
-                <img src="{{base}}/assets/images/small/small150_3.jpg" alt="small image" />
-            </div>
-            <div class="image-overlay">
-                <div class="inner-gradient" data-imgsrc="{{base}}/assets/images/small/small150_4.jpg"></div>
-                <img src="{{base}}/assets/images/small/small150_4.jpg" alt="small image" />
-            </div>
+
+            {% for thumbs in site.data.contentful.spaces.posts.homePageImages[0].thumbnailImages %}
+                <div class="image-overlay">
+                    <div class="inner-gradient" data-imgsrc="assets/images/home/{{ thumbs.title }}.jpg"></div>
+                    <img src="assets/images/home/{{ thumbs.title }}.jpg" alt="{{ thumbs.description }}" />
+                </div>
+            {% endfor %}
+
         </div>
     </div>
 </main>

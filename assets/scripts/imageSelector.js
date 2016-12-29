@@ -11,7 +11,7 @@ $(function () {
 
         $('#large-image img').each(function(){
 
-            var replacementSrc = $(this).attr('data-altsrc');
+            var replacementSrc = $(this).attr('src');
 
             if($(this).hasClass('active-image')){
                 $(this).removeClass('active-image');

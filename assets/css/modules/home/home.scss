@@ -26,6 +26,9 @@
     .image-overlay{
         position: relative;
         max-height: 150px;
+        img{
+            width: 150px;
+        }
         &:not(:last-of-type){
             margin-bottom: 10px;
         }

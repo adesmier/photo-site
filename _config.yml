@@ -2,11 +2,12 @@ title: Some Person - Photography
 description: Description of Project
 author: Author Name
 author_email: author@email.com
-url: http://192.168.1.133:3002
+url: http://192.168.1.117:3000
 
 exclude:
   - node_modules
   - gulpfile.js
+  - fetchContentfulImgs.js
   - package.json
   - Gemfile
   - Gemfile.lock
@@ -14,6 +15,7 @@ exclude:
   - instaSync.rb
   - assets/css/modules
   - assets/css/main.scss
+  - assets/images/home/download
 
 collections:
     projects:
