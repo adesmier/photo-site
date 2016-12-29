@@ -12,10 +12,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - instaSync.rb
+  - createProjects.rb
   - assets/css/modules
   - assets/css/main.scss
   - assets/images/home/download
+  - _projects/README.md
 
 collections:
     projects:

@@ -31,10 +31,10 @@ gulp.task('jekyll-build', function (done){
 /**
  * Build the Jekyll Site for Production
  */
-gulp.task('jekyll-live-build', function (done){
-    return cp.spawn(jekyll , ['build', '--config', '_liveConfig.yml'], {stdio: 'inherit'})
-        .on('close', done);
-});
+// gulp.task('jekyll-live-build', function (done){
+//     return cp.spawn(jekyll , ['build', '--config', '_liveConfig.yml'], {stdio: 'inherit'})
+//         .on('close', done);
+// });
 
 /**
  * Rebuild Jekyll & do page reload
@@ -146,7 +146,10 @@ gulp.task('default', ['browser-sync', 'watch']);
  * task to run when building on Netlify (runs all tasks
  * appart from browser-sync)
  */
-gulp.task('netlify-deploy', ['sass', 'resize-images', 'jekyll-live-build']);
+gulp.task('netlify-deploy', ['sass', 'resize-images'], function(done){
+    return cp.spawn(jekyll , ['build', '--config', '_liveConfig.yml'], {stdio: 'inherit'})
+        .on('close', done);
+});
 /**
  * delete the _site folder
  */
