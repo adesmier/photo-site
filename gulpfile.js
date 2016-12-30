@@ -146,7 +146,7 @@ gulp.task('default', ['browser-sync', 'watch']);
  * task to run when building on Netlify (runs all tasks
  * appart from browser-sync)
  */
-gulp.task('netlify-deploy', ['sass', 'resize-images'], function(done){
+gulp.task('netlify-deploy', ['clean-site', 'sass', 'resize-images'], function(done){
     return cp.spawn(jekyll , ['build', '--config', '_liveConfig.yml'], {stdio: 'inherit'})
         .on('close', done);
 });
