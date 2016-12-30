@@ -35,7 +35,7 @@
     // }
 }
 
-@media only screen and (max-width: 764px){
+@media only screen and (max-width: 864px){
     #page-container{
         display: block;
     }
@@ -52,9 +52,30 @@
     #menu-icon{
         display: table;
     }
-
-
 }
+
+@media only screen and (max-width: 700px){
+    #project-wrapper{
+        width: 440px;
+        img{
+            width: 440px;
+        }
+    }
+
+    #loading-spinner{
+        height: 440px;
+    }
+
+    .hero-image-caption{
+        bottom: 31%;
+        padding: 3px 10px;
+    }
+}
+
+
+
+
+
 
 
 @media only screen and (max-width: 674px){
@@ -108,5 +129,11 @@
         }
     }
 
+}
 
+
+@media only screen and (max-width: 477px){
+    #project-wrapper{
+        display: none;
+    }
 }

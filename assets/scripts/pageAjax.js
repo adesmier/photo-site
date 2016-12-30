@@ -48,12 +48,14 @@ $(function () {
 
                     if(tag == hashtag){
 
-                        $('<img>').attr({
+                        var $image = $('<img>').attr({
                             src: data.images.thumbnail.url,
                             'data-altsrc': data.images.standard_resolution.url,
                             'data-height': data.images.standard_resolution.height,
                             'data-caption': "<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>'
-                        }).appendTo($thumbnails);
+                        });
+                        $image.appendTo($thumbnails);
+                        //$image.appendTo($lightbox);
 
                         if(!projImageSet){
 
@@ -85,6 +87,7 @@ $(function () {
     //TODO: api url needs abfuscating
     var instagramURL = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=463968932.80d302d.ecba28686c2e407dbec4f387fe63dfad&callback=?';
     //jQuery variables
+    var $lightbox = $('#lightbox-content');
     var $projectWrapper = $('#project-wrapper');
     var $spinner = $projectWrapper.children('#loading-spinner');
     var $projectImage = $projectWrapper.children('img');

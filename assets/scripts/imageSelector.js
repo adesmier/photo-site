@@ -24,7 +24,7 @@ $(function () {
 
         });
 
-        $(this).attr('data-imgsrc', finalSrc)
+        $(this).attr('data-imgsrc', finalSrc);
         $(this).next().attr('src', finalSrc);
 
     });
