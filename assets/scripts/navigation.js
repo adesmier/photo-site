@@ -8,6 +8,10 @@ $(function () {
         $(this).find('ul').slideToggle();
     });
 
+    $('#close-icon').on('click', function () {
+        $('#lightbox').css('display', 'none');
+    });
+
     $('#menu-icon').on('click', function(){
         $(this).children('div').toggleClass('change');
         $(this).siblings('#nav-list').slideToggle('slow', function(){
