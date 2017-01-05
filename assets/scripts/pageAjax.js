@@ -168,8 +168,12 @@ $(function () {
         var curHeroSrc = $projectImage.attr('src');
         var newHeroSrc = $(this).attr('data-altsrc');
 
+
         //return if clicked thumbnail is already displayed
         if(curHeroSrc == newHeroSrc){
+            if(window.innerWidth <= 477){
+                $lightbox.css('display', 'block');
+            }
             return;
         } else if(window.innerWidth <= 477){ //display lightbox if window width small enough
             $lightbox.css('display', 'block');
