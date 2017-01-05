@@ -127,6 +127,7 @@ $(function () {
 
     //jQuery variables
     var $lightbox = $('#lightbox');
+    var $lightboxImages = $lightbox.children('#lightbox-content');
     var $projectWrapper = $('#project-wrapper');
     var $spinner = $projectWrapper.children('#loading-spinner');
     var $projectImage = $projectWrapper.children('img');
@@ -168,15 +169,28 @@ $(function () {
         var curHeroSrc = $projectImage.attr('src');
         var newHeroSrc = $(this).attr('data-altsrc');
 
+        //display lightbox if window width small enough
+        if(window.innerWidth <= 477){
+            $lightbox.css('display', 'block');
+
+            var thumbIndex = $('img').index($(this));
+            var $modalImage = $lightboxImages.find('img').eq(thumbIndex);
+            var $loaderImage = $('<img>');
+
+            $loaderImage.on('load', function(){
+                $modalImage.attr('src', $loaderImage.attr('src'));
+            });
+            $loaderImage.attr('src', $modalImage.attr('data-altsrc'));
+
+
+
+
+            return;
+        }
 
         //return if clicked thumbnail is already displayed
         if(curHeroSrc == newHeroSrc){
-            if(window.innerWidth <= 477){
-                $lightbox.css('display', 'block');
-            }
             return;
-        } else if(window.innerWidth <= 477){ //display lightbox if window width small enough
-            $lightbox.css('display', 'block');
         }
 
         var newHeroCap = $(this).attr('data-caption');

@@ -36,6 +36,10 @@
 }
 
 @media only screen and (max-width: 864px){
+    #main-content{
+        height: auto;
+    }
+    
     #page-container{
         display: block;
     }
