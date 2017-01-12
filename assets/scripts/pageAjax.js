@@ -60,7 +60,7 @@ $(function () {
 
                         //images used for lightbox modal
                         var $lightboxImage = $('<img>').attr({
-                            src: '//:0',
+                            src: 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=',
                             'data-altsrc': data.images.standard_resolution.url,
                             'data-caption': "<a href='" + data.link + "' target='_blank'>" + data.caption.text + '</a>'
                         });
