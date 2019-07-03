@@ -137,6 +137,7 @@ $(function () {
 
     //project name to compare to hastags
     var hashtag = $thumbnailWrapper.children('h3').text().toLowerCase();
+    hashtag = hashtag.replace(/\s/g, '');
     var projImageSet = false;
 
 
